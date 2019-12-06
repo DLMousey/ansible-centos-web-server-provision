@@ -1,0 +1,7 @@
+- hosts: ansible_tinker
+  remote_user: root
+  roles:
+    - role: selinux
+    - role: nginx
+    - role: docker
+    - role: node

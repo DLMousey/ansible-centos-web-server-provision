@@ -1,0 +1,19 @@
+---
+- name: Install gcc-c++, make and curl
+  yum:
+    name:
+     - gcc-c++
+     - make
+     - curl
+    state: present
+
+- name: Add Nodesource repo
+  shell: curl -sL https://rpm.nodesource.com/setup_13.x | sudo -E bash -
+  args:
+    warn: no
+
+- name: Install nodejs
+  yum:
+    name:
+     - nodejs
+    state: present

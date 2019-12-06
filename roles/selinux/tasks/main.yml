@@ -1,0 +1,20 @@
+---
+- name: Install python-pip
+  yum:
+    name: 
+     - python-pip
+    state: present
+
+- name: Install libselinux-python
+  pip:
+    name: selinux
+
+- name: Immediately disable SELinux for this session
+  selinux:
+    state: disabled
+ 
+- name: Permanently disable SELinux for further sessions
+  lineinfile:
+    path: /etc/selinux/config
+    regexp: '^SELINUX='
+    line: SELINUX=disabled
